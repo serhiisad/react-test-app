@@ -1,2 +1,3 @@
 # react-test-app
-technical test task.
+
+Test SPA
