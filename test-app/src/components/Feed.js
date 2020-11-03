@@ -9,10 +9,7 @@ const jsonDb = require("../db/news.json");
 function Feed() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const data = [{ title: "a", content: "b" }];
-
   useEffect(() => {
-    console.log("banana");
     // fetch(jsonDb)
     //   .then((res) => res.json())
     //   .then((posts) => {
@@ -28,20 +25,20 @@ function Feed() {
     //   })
     //   .catch((err) => console.error("ERROR", err));
 
-    //setTimeout(() => {
-    // jsonDb.forEach((post) => {
-    //   //console.log("POST", post);
-    //   //setPosts(posts.concat([{ title: post.title, content: post.content }]));
-    // });
-    //  jsonDb.map((post) => {
-    //    console.log(post);
-    //    return { title: post.title, content: post.content };
-    //  });
-    console.log(jsonDb);
-    setPosts(data);
-    setLoading(false);
-    console.log("POSTS", posts.length, posts);
-    //}, 2000);
+    setTimeout(() => {
+      // jsonDb.forEach((post) => {
+      //   //console.log("POST", post);
+      //   //setPosts(posts.concat([{ title: post.title, content: post.content }]));
+      // });
+      //  jsonDb.map((post) => {
+      //    console.log(post);
+      //    return { title: post.title, content: post.content };
+      //  });
+      //console.log(jsonDb);
+      setPosts(() => jsonDb);
+      setLoading(false);
+      //console.log("POSTS", posts.length, posts);
+    }, 1000);
   }, []);
 
   return (
