@@ -9,6 +9,7 @@ const jsonDb = require("../db/news.json");
 function Feed() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     // fetch(jsonDb)
     //   .then((res) => res.json())
