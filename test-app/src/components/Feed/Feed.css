@@ -1,5 +1,6 @@
-.post {
+.emptyFeedContainer {
   border: solid 2px grey;
   margin-bottom: 2rem;
   padding: 14px 20px;
+  text-align: center;
 }

@@ -1,17 +1,34 @@
 import logo from "./logo.svg";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import { NavLink, Switch, Route } from "react-router-dom";
-import Feed from "./components/Feed";
-import NewsAdder from "./components/NewsAdder";
+import Feed from "./components/Feed/Feed.js";
+import NewsAdder from "./components/Feed/NewsAdder";
+import { Provider } from "react-redux";
+import { loadPosts } from "./redux-store/actionCreators";
+import Store from "./redux-store/store";
 
-const App = () => (
-  <div className="app">
-    <h1>NewsFeed</h1>
-    <Navigation />
-    <Main />
-  </div>
-);
+
+const jsonDb = require("./db/news.json");
+
+const App = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // *loading posts from json into redux store
+    Store.dispatch(loadPosts(jsonDb));
+  }, []);
+
+  return (
+    <Provider store={Store}>
+      <div className="app">
+        <h1>NewsFeed</h1>
+        <Navigation />
+        <Main />
+      </div>
+    </Provider>
+  );
+};
 
 const Navigation = () => (
   <nav>

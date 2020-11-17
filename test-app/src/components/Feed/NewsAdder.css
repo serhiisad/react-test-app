@@ -17,7 +17,7 @@ textarea {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-button {
+button.submitBtn {
   text-align: center;
   width: 50%;
   background-color: #4caf50;
@@ -31,5 +31,5 @@ button {
 }
 
 button[type="submit"]:hover {
-  background-color: #45a049;
+  background-color: #29802b;
 }
