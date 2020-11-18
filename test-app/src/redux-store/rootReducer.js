@@ -1,4 +1,4 @@
-import { ADD_POST, DELETE_POST,  LOAD_POSTS } from "./actionTypes";
+import { ADD_POST, DELETE_POST, LOAD_POSTS } from "./actionTypes";
 
 let initialState = {
   posts: [],
@@ -12,6 +12,9 @@ export function rootReducer(state = initialState, action) {
       return { ...state, posts: action.payload };
     case ADD_POST:
       let post = action.payload;
+      if (!(post.title.trim() && post.content.trim())) {
+        throw new Error("EMPTY POST ERROR");
+      }
       return { ...state, posts: [...state.posts, post] };
     case DELETE_POST:
       let deletedPost_id = action.payload;
